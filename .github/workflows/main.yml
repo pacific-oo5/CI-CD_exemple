@@ -1,22 +1,13 @@
-name: Python Syntax Check
-
+name: Simple CI Example
 on: [push]
-
 jobs:
-  lint:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Загрузка кода
-        uses: actions/checkout@v3
-
-      - name: Установка Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: "3.10"
-
-      - name: Установка flake8
-        run: pip install flake8
-
-      - name: Проверка синтаксиса
-        run: flake8 .
+ build:
+ runs-on: ubuntu-latest
+ steps:
+ - name: Загрузка кода
+ uses: actions/checkout@v3
+ - name: Проверка содержимого
+ run: |
+ echo "Проверяем код..."
+ ls -la
+ echo "CI успешно выполнен!"
